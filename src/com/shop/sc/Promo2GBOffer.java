@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Promo2GBOffer {
-	public Map<String,Double> get2GBPromo(List<ShopItem> shopItems){
+public class Promo2GBOffer extends PromoOffer{
+
+
+
+	public Map<String,Double> getPromo(List<ShopItem> shopItems){
 		ShopItem shopItem;
 		ShopItem dataPack;
 		int itemCount = 0;

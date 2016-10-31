@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Promo5GBOffer {
+public class Promo5GBOffer extends PromoOffer{
 	
-	public Map<String,Double> get5GBPromo(List<ShopItem> shopItems){
+	public Map<String,Double> getPromo(List<ShopItem> shopItems){
 		ShopItem shopItem;
 		int counter = 0;
 		int itemCount = 0;

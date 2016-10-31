@@ -3,8 +3,9 @@ package com.shop.sc;
 import java.util.Map;
 import java.util.Iterator;
 import java.util.List;
-
+import java.util.Set;
 import com.iface.sc.IPricing;
+import org.reflections;
 
 public class PricingRule2016Impl implements IPricing{
 	
@@ -17,9 +18,14 @@ public class PricingRule2016Impl implements IPricing{
 		double price;
 		Map<String, Double> data = new Hashmap<String, Double>;
 		try{
-			offers.putAll(new Promo1GBOffer().get1GBPromo(shopItems));
-			offers.putAll(new Promo2GBOffer().get2GBPromo(shopItems));
-			offers.putAll(new Promo5GBOffer().get5GBPromo(shopItems));
+			// offers.putAll(new Promo1GBOffer().get1GBPromo(shopItems));
+			// offers.putAll(new Promo2GBOffer().get2GBPromo(shopItems));
+			// offers.putAll(new Promo5GBOffer().get5GBPromo(shopItems));
+			Reflections reflections = new Reflections("com.shop.sc");
+			Set<Class <? extends PromoOffer>> classes = reflections.getSubTypesOf(PromoOffer.class);
+			for (PromoOffer po: classes){
+				offers.putAll(new po().getPromo(shopItems));
+			}
 			Iterator it = new offers.entrySet().iterator();
 			while(it.hasNext())
 			{
